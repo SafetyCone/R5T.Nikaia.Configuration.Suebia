@@ -12,7 +12,7 @@ namespace R5T.Nikaia.Configuration.Suebia
     {
         public static IConfigurationBuilder AddGitConfigurationJsonFile(this IConfigurationBuilder configurationBuilder, IServiceProvider configurationServiceProvider)
         {
-            var secretsFilePathProvider = configurationServiceProvider.GetRequiredService<ISecretsFilePathProvider>();
+            var secretsFilePathProvider = configurationServiceProvider.GetRequiredService<ISecretsDirectoryFilePathProvider>();
 
             var gitConfigurationJsonFilePath = secretsFilePathProvider.GetSecretsFilePath(FileNames.GitConfigurationJsonFileName);
 
