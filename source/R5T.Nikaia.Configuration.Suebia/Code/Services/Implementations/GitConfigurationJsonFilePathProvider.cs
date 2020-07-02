@@ -6,17 +6,17 @@ using R5T.Suebia;
 
 namespace R5T.Nikaia.Configuration.Suebia
 {
-    public class GitJsonConfigurationFilePathProvider : IGitJsonConfigurationFilePathProvider
+    public class GitConfigurationJsonFilePathProvider : IGitConfigurationJsonFilePathProvider
     {
         private ISecretsDirectoryFilePathProvider SecretsDirectoryFilePathProvider { get; }
 
 
-        public GitJsonConfigurationFilePathProvider(ISecretsDirectoryFilePathProvider secretsDirectoryFilePathProvider)
+        public GitConfigurationJsonFilePathProvider(ISecretsDirectoryFilePathProvider secretsDirectoryFilePathProvider)
         {
             this.SecretsDirectoryFilePathProvider = secretsDirectoryFilePathProvider;
         }
 
-        public Task<string> GetGitJsonConfigurationFilePath()
+        public Task<string> GetGitConfigurationJsonFilePath()
         {
             var gitConfigurationJsonFilePath = this.SecretsDirectoryFilePathProvider.GetSecretsFilePath(FileNames.GitConfigurationJsonFileName);
 

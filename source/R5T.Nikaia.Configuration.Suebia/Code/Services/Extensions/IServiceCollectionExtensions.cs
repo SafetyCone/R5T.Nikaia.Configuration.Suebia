@@ -24,13 +24,13 @@ namespace R5T.Nikaia.Configuration.Suebia
         }
 
         /// <summary>
-        /// Adds the <see cref="GitJsonConfigurationFilePathProvider"/> implementation of <see cref="IGitJsonConfigurationFilePathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="GitConfigurationJsonFilePathProvider"/> implementation of <see cref="IGitConfigurationJsonFilePathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddGitJsonConfigurationFilePathProvider(this IServiceCollection services,
+        public static IServiceCollection AddGitConfigurationJsonFilePathProvider(this IServiceCollection services,
             IServiceAction<ISecretsDirectoryFilePathProvider> secretsDirectoryFilePathProviderAction)
         {
             services
-                .AddSingleton<IGitJsonConfigurationFilePathProvider, GitJsonConfigurationFilePathProvider>()
+                .AddSingleton<IGitConfigurationJsonFilePathProvider, GitConfigurationJsonFilePathProvider>()
                 .Run(secretsDirectoryFilePathProviderAction)
                 ;
 
@@ -38,12 +38,12 @@ namespace R5T.Nikaia.Configuration.Suebia
         }
 
         /// <summary>
-        /// Adds the <see cref="GitJsonConfigurationFilePathProvider"/> implementation of <see cref="IGitJsonConfigurationFilePathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="GitConfigurationJsonFilePathProvider"/> implementation of <see cref="IGitConfigurationJsonFilePathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceAction<IGitJsonConfigurationFilePathProvider> AddGitJsonConfigurationFilePathProviderAction(this IServiceCollection services,
+        public static IServiceAction<IGitConfigurationJsonFilePathProvider> AddGitConfigurationJsonFilePathProviderAction(this IServiceCollection services,
             IServiceAction<ISecretsDirectoryFilePathProvider> secretsDirectoryFilePathProviderAction)
         {
-            var serviceAction = ServiceAction.New<IGitJsonConfigurationFilePathProvider>(() => services.AddGitJsonConfigurationFilePathProvider(
+            var serviceAction = ServiceAction.New<IGitConfigurationJsonFilePathProvider>(() => services.AddGitConfigurationJsonFilePathProvider(
                 secretsDirectoryFilePathProviderAction));
 
             return serviceAction;
