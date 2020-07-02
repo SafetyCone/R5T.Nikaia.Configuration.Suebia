@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 
 using R5T.Suebia;
 
@@ -16,11 +15,10 @@ namespace R5T.Nikaia.Configuration.Suebia
             this.SecretsDirectoryFilePathProvider = secretsDirectoryFilePathProvider;
         }
 
-        public Task<string> GetGitConfigurationJsonFilePath()
+        public string GetGitConfigurationJsonFilePath()
         {
             var gitConfigurationJsonFilePath = this.SecretsDirectoryFilePathProvider.GetSecretsFilePath(FileNames.GitConfigurationJsonFileName);
-
-            return Task.FromResult(gitConfigurationJsonFilePath);
+            return gitConfigurationJsonFilePath;
         }
     }
 }
