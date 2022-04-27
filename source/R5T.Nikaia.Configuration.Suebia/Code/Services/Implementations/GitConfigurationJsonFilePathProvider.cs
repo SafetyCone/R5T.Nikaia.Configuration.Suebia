@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 
-using R5T.Suebia;
+using R5T.Suebia;using R5T.T0064;
 
 
 namespace R5T.Nikaia.Configuration.Suebia
-{
-    public class GitConfigurationJsonFilePathProvider : IGitConfigurationJsonFilePathProvider
+{[ServiceImplementationMarker]
+    public class GitConfigurationJsonFilePathProvider : IGitConfigurationJsonFilePathProvider,IServiceImplementation
     {
         private ISecretsDirectoryFilePathProvider SecretsDirectoryFilePathProvider { get; }
 
